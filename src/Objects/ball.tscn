@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlu7htthg0e60"]
+
+[ext_resource type="Texture2D" uid="uid://q68xleu5mup1" path="res://assets/spritesheets/ball.png" id="1_i2547"]
+[ext_resource type="Script" path="res://src/Objects/Ball.cs" id="1_mh3gv"]
+
+[sub_resource type="Gradient" id="Gradient_oble6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv7q5"]
+radius = 4.0
+
+[node name="Ball" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.1
+gravity_scale = 0.0
+continuous_cd = 2
+lock_rotation = true
+script = ExtResource("1_mh3gv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 48
+gravity = Vector2(100, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_oble6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i2547")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pv7q5")
