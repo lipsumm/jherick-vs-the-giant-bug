@@ -1,6 +1,7 @@
 namespace Objects;
 
 using Godot;
+using Actors;
 using System;
 
 public partial class Ball : RigidBody2D

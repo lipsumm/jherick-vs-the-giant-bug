@@ -17,6 +17,10 @@ public partial class Hitbox : Area2D
         if (body is Ball ball)
         {
             ball.Hit(this.GlobalPosition.DirectionTo(ball.GlobalPosition));
+            if (GetParent() is Actor actor)
+            {
+                PlayerTurn.Instance.LastHit = actor;
+            }
         }
     }
 }
